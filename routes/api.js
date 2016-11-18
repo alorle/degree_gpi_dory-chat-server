@@ -12,10 +12,8 @@ function handleError(res, err) {
 }
 
 // API home page
-router.get('/', function (req, res) {
-  res.json({
-    message: 'DoryChat server API home page'
-  });
+router.get('/', function(req, res) {
+  res.sendfile('public/api.html');
 });
 
 // GET all users

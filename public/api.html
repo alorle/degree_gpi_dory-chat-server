@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DoryChat REST API</title>
+
+  <!-- Get Material Design Lite resources -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.teal-red.min.css">
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
+  <style>
+    body {
+      background-color: #e0e0e0;
+    }
+    
+    main {
+      padding-bottom: 24px;
+    }
+    
+    .wrapper {
+      width: 95%;
+      max-width: 600px;
+      margin: auto;
+    }
+    
+    table {
+      width: 100%;
+    }
+    
+    .mdl-mini-footer {
+      padding: 14px 16px;
+    }
+    
+    .mdl-mini-footer > p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Dory Chat REST API</span>
+      </div>
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#query" class="mdl-layout__tab is-active">Query</a>
+        <a href="#create" class="mdl-layout__tab">Create</a>
+        <a href="#delete" class="mdl-layout__tab">Delete</a>
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <div class="wrapper">
+        <section class="mdl-layout__tab-panel is-active" id="query">
+          <h2 class="mdl-typography--headline">Query users</h2>
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Description</th>
+                <th class="mdl-data-table__cell--non-numeric">URL</th>
+                <th class="mdl-data-table__cell--non-numeric">Method</th>
+                <th class="mdl-data-table__cell--non-numeric">Params</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Get <strong>all</strong> users</td>
+                <td class="mdl-data-table__cell--non-numeric">api/users</td>
+                <td class="mdl-data-table__cell--non-numeric">GET</td>
+                <td class="mdl-data-table__cell--non-numeric">none</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Get <strong>one</strong> user</td>
+                <td class="mdl-data-table__cell--non-numeric">api/users/<i>email</i></td>
+                <td class="mdl-data-table__cell--non-numeric">GET</td>
+                <td class="mdl-data-table__cell--non-numeric">User email</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="mdl-layout__tab-panel" id="create">
+          <h2 class="mdl-typography--headline">Create user</h2>
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Description</th>
+                <th class="mdl-data-table__cell--non-numeric">URL</th>
+                <th class="mdl-data-table__cell--non-numeric">Method</th>
+                <th class="mdl-data-table__cell--non-numeric">Params</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Create user</td>
+                <td class="mdl-data-table__cell--non-numeric">api/users</td>
+                <td class="mdl-data-table__cell--non-numeric">POST</td>
+                <td class="mdl-data-table__cell--non-numeric">name, email and hashed password</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="mdl-layout__tab-panel" id="delete">
+          <h2 class="mdl-typography--headline">Delete user</h2>
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Description</th>
+                <th class="mdl-data-table__cell--non-numeric">URL</th>
+                <th class="mdl-data-table__cell--non-numeric">Method</th>
+                <th class="mdl-data-table__cell--non-numeric">Params</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Create user</td>
+                <td class="mdl-data-table__cell--non-numeric">api/users/<i>email</i></td>
+                <td class="mdl-data-table__cell--non-numeric">DELETE</td>
+                <td class="mdl-data-table__cell--non-numeric">email</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+
+    <footer class="mdl-mini-footer">
+      <p class="mdl-logo">© 2016 Dory Chat REST API</p>
+    </footer>
+
+  </div>
+</body>
+
+</html>

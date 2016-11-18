@@ -9,6 +9,8 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/public'));
+
 // Define port where app will listen
 var port = process.env.PORT || 8080;
 
