@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/AlvaroOrduna/degree_gpi_dory-chat-server#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "pg-promise": "^5.3.5"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
