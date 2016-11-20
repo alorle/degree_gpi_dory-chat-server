@@ -6,8 +6,8 @@ function getUsers() {
   return db.any("SELECT * FROM users");
 }
 
-function getUser(id) {
-  return db.one("SELECT * FROM users WHERE email LIKE $1", id);
+function getUser(email) {
+  return db.one("SELECT * FROM users WHERE email LIKE $1", email);
 }
 
 function createUser(name, email, password) {
@@ -18,9 +18,14 @@ function deleteUser(email) {
   return db.none("DELETE FROM users WHERE email LIKE $1", email);
 }
 
+function authUser(email, password) {
+  return db.one("SELECT * FROM users WHERE email LIKE $1 AND password LIKE $2", [email, password]);
+}
+
 module.exports = {
   getUsers: getUsers,
   getUser: getUser,
   createUser: createUser,
-  deleteUser: deleteUser
+  deleteUser: deleteUser,
+  authUser: authUser
 };

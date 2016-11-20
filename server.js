@@ -3,6 +3,7 @@ var express = require('express');
 
 var router_main = require('./routes/main');
 var router_api = require('./routes/api');
+var router_auth = require('./routes/auth');
 
 var app = express();
 
@@ -17,6 +18,7 @@ var port = process.env.PORT || 8080;
 // Define router usage
 app.use('/', router_main);
 app.use('/api', router_api);
+app.use('/auth', router_auth);
 
 // Make app listen
 app.listen(port, function () {

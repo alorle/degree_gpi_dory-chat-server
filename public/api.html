@@ -22,15 +22,17 @@
     }
     
     .wrapper {
-      width: 95%;
       max-width: 600px;
       margin: auto;
     }
     
     table {
-      width: 100%;
       overflow: auto;
       display: block;
+    }
+    
+    table td:last-child {
+      width: 100%;
     }
     
     .mdl-mini-footer {
@@ -53,6 +55,7 @@
         <a href="#query" class="mdl-layout__tab is-active">Query</a>
         <a href="#create" class="mdl-layout__tab">Create</a>
         <a href="#delete" class="mdl-layout__tab">Delete</a>
+        <a href="#auth" class="mdl-layout__tab">Auth</a>
       </div>
     </header>
     <main class="mdl-layout__content">
@@ -122,6 +125,27 @@
                 <td class="mdl-data-table__cell--non-numeric">api/users/<i>email</i></td>
                 <td class="mdl-data-table__cell--non-numeric">DELETE</td>
                 <td class="mdl-data-table__cell--non-numeric">email</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="mdl-layout__tab-panel" id="auth">
+          <h2 class="mdl-typography--headline">Auth user</h2>
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Description</th>
+                <th class="mdl-data-table__cell--non-numeric">URL</th>
+                <th class="mdl-data-table__cell--non-numeric">Method</th>
+                <th class="mdl-data-table__cell--non-numeric">Params</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Auth user</td>
+                <td class="mdl-data-table__cell--non-numeric">auth</td>
+                <td class="mdl-data-table__cell--non-numeric">POST</td>
+                <td class="mdl-data-table__cell--non-numeric">email and password</td>
               </tr>
             </tbody>
           </table>
