@@ -48,8 +48,13 @@ app.ws('/:user', function (ws, req) {
   // Notify user disconnection broadcast
   ws.on('close', function close() {
     console.log("User " + userId + " logged out");
-    clients.forEach(function (client) {
-      client.ws.send(userId + " se ha desconectado");
+
+    clients.forEach(function (client, index) {
+      if (client.userId == userId) {
+        clients.splice(index, 1);
+      } else {
+        client.ws.send(userId + " se ha desconectado");
+      }
     });
   });
 });
