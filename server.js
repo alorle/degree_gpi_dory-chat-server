@@ -30,6 +30,7 @@ app.ws('/:user', function (ws, req) {
   var userId = req.params.user;
 
   console.log("New connection " + userId);
+  ws.send("New connection " + userId);
 
   clients.push({ ws: ws, userId: userId });
 
