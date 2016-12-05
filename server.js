@@ -22,39 +22,38 @@ app.use('/', router_main);
 app.use('/api', router_api);
 app.use('/auth', router_auth);
 
-// Init clients array
-var clients = [];
+// Init connections array
+var connectionsArray = [];
 
 // Define WebSockets server path
 app.ws('/:user', function (ws, req) {
-  var userId = req.params.user;
+  var user = req.params.user;
 
-  console.log("New connection " + userId);
-  ws.send("New connection " + userId);
-
-  clients.push({ ws: ws, userId: userId });
+  connectionsArray.push({ user: user, ws: ws });
+  console.log("User " + user + " logged in");
 
   // Notify new connection broadcast
-  clients.forEach(function (client) {
-    client.ws.send(userId + " se ha conectado");
+  connectionsArray.forEach(function (connection) {
+    connection.ws.send(JSON.stringify({ user: user, msg: "connected" }));
   });
 
   // Send new message broadcast
   ws.on('message', function (msg) {
-    clients.forEach(function (client) {
-      client.ws.send(msg);
+    console.log(msg);
+    connectionsArray.forEach(function (connection) {
+      connection.ws.send(JSON.stringify({ user: user, msg: msg }));
     });
   });
 
   // Notify user disconnection broadcast
   ws.on('close', function close() {
-    console.log("User " + userId + " logged out");
+    console.log("User " + user + " logged out");
 
-    clients.forEach(function (client, index) {
-      if (client.userId == userId) {
-        clients.splice(index, 1);
+    connectionsArray.forEach(function (connection, index) {
+      if (connection.user == user) {
+        connectionsArray.splice(index, 1);
       } else {
-        client.ws.send(userId + " se ha desconectado");
+        connection.ws.send(JSON.stringify({ user: user, msg: "disconnected" }));
       }
     });
   });
